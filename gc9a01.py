@@ -28,8 +28,8 @@ __repo__ = "https://github.com/tylercrumpton/CircuitPython_GC9A01.git"
 import displayio
 
 _INIT_SEQUENCE = bytearray(
-    b"\xFE\x00"  #Inter Register Enable1 (FEh)
-    b"\xEF\x00"  #Inter Register Enable2 (EFh)
+    b"\xFE\x00"  # Inter Register Enable1 (FEh)
+    b"\xEF\x00"  # Inter Register Enable2 (EFh)
     b"\xB6\x02\x00\x00"  # Display Function Control (B6h) [S1→S360 source scan direction, G1→G32 gate scan direction]
     b"\x36\x01\x48"  # Memory Access Control(36h) [Invert Row order, invert vertical scan order]
     b"\x3a\x01\x05"  # COLMOD: Pixel Format Set (3Ah) [16 bits / pixel]
@@ -52,7 +52,8 @@ _INIT_SEQUENCE = bytearray(
     b"\x2b\x04\x00\x00\x00\xef"  # Row Address Set (2Bh) [Start row = 0, end row = 239]
 )
 
+
 class GC9A01(displayio.Display):
-    def __init__(self, bus, *, **kwargs):
+    def __init__(self, bus, **kwargs):
         init_sequence = _INIT_SEQUENCE
         super().__init__(bus, init_sequence, **kwargs)
