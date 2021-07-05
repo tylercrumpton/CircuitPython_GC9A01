@@ -56,7 +56,7 @@ Usage Example
     display = GC9A01(display_bus, width=240, height=240)
 
     # Make the display context
-    splash = displayio.Group(max_size=10)
+    splash = displayio.Group()
     display.show(splash)
 
     color_bitmap = displayio.Bitmap(240, 240, 1)
